@@ -1,0 +1,23 @@
+Pulling data from an API 
+Using the .gov bank holiday list as an example, if the API does not use a JSON structure then you will need a different solution
+install.packages(“jsonlite”)
+library(jsonlite) 
+#put URL into a variable
+bank_holidays <- "https://www.gov.uk/bank-holidays.json"
+#call the url using the fromJSON function
+bank_holidays <- fromJSON(bank_holidays) 
+#the bank holidays json has 3 divisons (England and Wales, Scotland and Northern Ireland)
+#the next step unpacks the division that has the dates I’m interested in
+
+bank_holidays <- bank_holidays[["england-and-wales"]]
+#The division unpacks as a list. 
+#The "events" element of the list is a dataframe holding what we're interested in. 
+#To call just that part of the list using the $ notation. 
+#We could not do this with the previous division. 
+#The "england-and-wales" name has hyphens which would not work with using $ 
+#So we used double square brackets instead.
+
+bank_holidays <- bank_holidays$events
+#This leaves us with a dataframe containing the bank holidays we are interested in. 
+#We used the same variable name throughout so we don’t need to clean up any leftover objects
+
