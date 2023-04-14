@@ -1,2 +1,2 @@
 # utility_code
- code snippits useful for multiple projects
+ code snippits or self-contained scripts useful for multiple projects
