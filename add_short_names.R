@@ -31,7 +31,7 @@ provider_short_name = c('RBH','OUH','BHT','Frimley',
                          'DGT','MFT','EKH','MTW',
                          'RSCH','ASP','SASH','QVH',
                          'ESH','UHSX'),
-ics_code = c(rep('QU9',3),'RDU',rep('QRL',4),
+ics_code = c(rep('QU9',3),'QNQ',rep('QRL',4),
              rep('QKS',4),rep('QXU',3),rep('QNX',3)),
 ics_short_name = c(rep('BOB',3),'Frimley',rep('HIOW',4),
                    rep('KM',4),rep('Surrey',3),rep('Sussex',3)))
@@ -40,7 +40,7 @@ ics_short_name = c(rep('BOB',3),'Frimley',rep('HIOW',4),
 merge_column <- orgcode_field
 
 #ensure that the orgcode_field is character to match lookup data type
-df[,orgcode_field] <- as.character(df[,orgcode_field])
+df[,orgcode_field] <- sapply(df[,orgcode_field],as.character)
 
 result <- merge(df,names_lookup,by.x = merge_column , by.y = 'org_code', all.x = TRUE)
 
