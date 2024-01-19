@@ -2,7 +2,7 @@
 #' 
 #' This function takes in a dataframe that has a column containing the 3 letter 
 #' ODS trust codes and returns a dataframe with the original data together with 
-#' a column giving a short provider name, the relevant ICS code for that trust, 
+#' columns giving a short provider name, the relevant ICS code for that trust, 
 #' and a shortened ICS name/initials.
 #' 
 #' The idea is to make it easier to format charts and tables when producing 
